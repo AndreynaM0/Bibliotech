@@ -1,0 +1,279 @@
+@import url("https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Literata:opsz,wght@7..72,400;7..72,500&display=swap");
+
+:root {
+  --fundo: #e8ecef;
+  --superficie: #ffffff;
+  --tinta: #1b2430;
+  --tinta-suave: #5a6573;
+  --linha: #d3d9df;
+  --foco: #2b4c7e;
+  --selo: #b3362f;
+  --verde-status: #2f6b5e;
+
+  --fonte-titulo: "Bricolage Grotesque", "Helvetica Neue", Arial, sans-serif;
+  --fonte-texto: "Literata", Georgia, "Times New Roman", serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--fundo);
+  color: var(--tinta);
+  font-family: var(--fonte-texto);
+}
+
+.listagem {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 2.5rem 1.25rem 4rem;
+}
+
+.listagem__topo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.listagem__titulo {
+  margin: 0;
+  font-family: var(--fonte-titulo);
+  font-weight: 700;
+  font-size: clamp(2rem, 5vw, 3rem);
+  letter-spacing: -0.02em;
+}
+
+.listagem__filtros {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+}
+
+.listagem__grade {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 1.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.listagem__vazio {
+  padding: 2rem 0;
+  color: var(--tinta-suave);
+}
+
+.campo {
+  height: 2.75rem;
+  padding: 0 0.85rem;
+  font-family: var(--fonte-texto);
+  font-size: 0.95rem;
+  color: var(--tinta);
+  background: var(--superficie);
+  border: 1px solid var(--linha);
+  border-radius: 4px;
+}
+
+.campo--busca {
+  flex: 1 1 240px;
+}
+
+.campo--categoria {
+  flex: 0 1 220px;
+}
+
+.campo:focus-visible {
+  outline: 3px solid var(--foco);
+  outline-offset: 1px;
+}
+
+.botao {
+  height: 2.75rem;
+  padding: 0 1.25rem;
+  font-family: var(--fonte-titulo);
+  font-weight: 500;
+  font-size: 0.95rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.botao--primario {
+  color: #fff;
+  background: var(--tinta);
+  border: 2px solid var(--tinta);
+  transition: background 0.15s ease;
+}
+
+.botao--primario:hover {
+  background: #2f3c4d;
+}
+
+.botao:focus-visible,
+.livro__botao:focus-visible {
+  outline: 3px solid var(--foco);
+  outline-offset: 2px;
+}
+
+.livro {
+  --cor-livro: #2b4c7e;
+
+  display: flex;
+  flex-direction: column;
+  background: var(--superficie);
+  border: 1px solid var(--linha);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.livro--aventura { --cor-livro: #2f6b5e; }
+.livro--ficcao { --cor-livro: #2b4c7e; }
+.livro--fantasia { --cor-livro: #6b4a8c; }
+.livro--terror { --cor-livro: #7a2b2b; }
+.livro--romance { --cor-livro: #9c3d54; }
+.livro--suspense-psicologico { --cor-livro: #3e4a57; }
+.livro--distopia { --cor-livro: #8a5a2b; }
+.livro--lgbtq { --cor-livro: #1f7a8c; }
+
+.livro__capa {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  aspect-ratio: 5 / 3;
+  padding: 1rem;
+  background: var(--cor-livro);
+  border-left: 10px solid rgb(0 0 0 / 0.22);
+  transition: filter 0.25s ease;
+}
+
+.livro__categoria {
+  font-family: var(--fonte-titulo);
+  font-weight: 700;
+  font-size: 1.3rem;
+  line-height: 1.15;
+  color: #fff;
+  text-wrap: balance;
+}
+
+.livro__selo {
+  position: absolute;
+  top: 0.9rem;
+  right: 0.9rem;
+  padding: 0.2rem 0.55rem;
+  font-family: var(--fonte-titulo);
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: var(--selo);
+  background: #fff;
+  border: 2px solid var(--selo);
+  border-radius: 3px;
+  transform: rotate(6deg);
+  animation: carimbar 0.22s ease-out;
+}
+
+@keyframes carimbar {
+  from {
+    transform: rotate(6deg) scale(1.6);
+    opacity: 0;
+  }
+  to {
+    transform: rotate(6deg) scale(1);
+    opacity: 1;
+  }
+}
+
+.livro--emprestado .livro__capa {
+  filter: saturate(0.35) brightness(0.92);
+}
+
+.livro__info {
+  flex: 1;
+  padding: 1rem 1rem 0.75rem;
+}
+
+.livro__titulo {
+  margin: 0;
+  font-family: var(--fonte-titulo);
+  font-weight: 700;
+  font-size: 1.15rem;
+  line-height: 1.25;
+}
+
+.livro__autor {
+  margin: 0.25rem 0 0;
+  font-size: 0.95rem;
+}
+
+.livro__ano {
+  margin: 0.5rem 0 0;
+  font-size: 0.85rem;
+  color: var(--tinta-suave);
+}
+
+.livro__status {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin: 0.75rem 0 0;
+  font-family: var(--fonte-titulo);
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+.livro__status::before {
+  content: "";
+  width: 0.55rem;
+  height: 0.55rem;
+  border-radius: 50%;
+  background: var(--verde-status);
+}
+
+.livro--emprestado .livro__status::before {
+  background: var(--selo);
+}
+
+.livro__botao {
+  margin: 0 1rem 1rem;
+  padding: 0.7rem 1rem;
+  font-family: var(--fonte-titulo);
+  font-weight: 500;
+  font-size: 0.95rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.livro__botao--emprestar {
+  color: #fff;
+  background: var(--tinta);
+  border: 2px solid var(--tinta);
+}
+
+.livro__botao--emprestar:hover {
+  background: #2f3c4d;
+}
+
+.livro__botao--devolver {
+  color: var(--tinta);
+  background: transparent;
+  border: 2px solid var(--tinta);
+}
+
+.livro__botao--devolver:hover {
+  background: #eef1f4;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .livro__selo {
+    animation: none;
+  }
+  .livro__capa,
+  .livro__botao,
+  .botao--primario {
+    transition: none;
+  }
+}
