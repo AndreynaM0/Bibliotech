@@ -277,3 +277,15 @@ body {
     transition: none;
   }
 }
+
+.cabecalho {
+    background-color: #1b2430;
+    color: #ffffff;
+    padding: 1rem 2rem;
+}
+
+.cabecalho h1 {
+    margin: 0;
+    font-family: "Bricolage Grotesque", Arial, sans-serif;
+    font-size: 1.8rem;
+}
