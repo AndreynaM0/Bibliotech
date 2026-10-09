@@ -13,9 +13,14 @@ function App() {
 
   return (
     <>  
-    {telaAtiva === "Listagem" ? 
+    <header className='cabecalho'>
+      <h1>Bibliotech</h1>
+    </header>
+
+    {telaAtiva === "Listagem" ?
     <Listagem propsTelaAtiva={setTelaAtiva} propsLivros={livros} propsAtualizarLivros={setLivros}/> :
-    <Cadastro propsTelaAtiva={setTelaAtiva} propsLivros={livros} propsAtualizarLivros={setLivros}/>}
+    <Cadastro propsTelaAtiva={setTelaAtiva} propsLivros={livros} propsAtualizarLivros={setLivros}/>
+    }
 
       
     </>
